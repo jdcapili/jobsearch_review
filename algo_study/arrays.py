@@ -34,22 +34,32 @@
 
 # rearrange([7,3,2,5,8,9])
 
-def generate-primes (n) :
-    if n < 2:
-        return []
-    size= (n-3) // 2 + 1
-    primes = [2] # Stores the prizes fron 7 to n.
+# def generate-primes (n) :
+#     if n < 2:
+#         return []
+#     size= (n-3) // 2 + 1
+#     primes = [2] # Stores the prizes fron 7 to n.
 # is-prineliJ represents (2i + 3) is prine or not.
 # InitialTy set each to true. Then use sieving to elininate nonprines.
-    is_prime=[True] * size
-    for i in range(size):
-        if is_prime[i]:
-            p=i*2+3
-        primes.append(p)
+    # is_prime=[True] * size
+    # for i in range(size):
+    #     if is_prime[i]:
+    #         p=i*2+3
+    #     primes.append(p)
 # Sieving fron p^2, where p^2 = (4i^2 + 12i + 9). The index in is-prirne
 # is (2i^2 + 6i + 3) because is*prinefi] represents 2i + 3.
 #
 # Note that we need to use Tong for j because p^2 night overfTow.
-        for j in range(2 * i**2 + 6 * i + 3, size, p):
-            is_prime[j] = False
-    return primes
+    #     for j in range(2 * i**2 + 6 * i + 3, size, p):
+    #         is_prime[j] = False
+    # return primes
+
+import random
+def sample_offline_data(arr,size):
+    for i in range(0,size):
+        r = random.randint(i, len(arr)-1)
+        arr[r],arr[i] = arr[i], arr[r]
+    
+    print(arr)
+
+sample_offline_data([3,4,6,7,8,9],2)
