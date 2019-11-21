@@ -36,3 +36,29 @@ class Solution:
 
         
         return False
+
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        if len(nums) == 1: return True
+        if nums[0] == 0: return False
+        table = [False] * len(nums)
+        table[0] = True
+        
+        for i in range(0,len(nums) - 1):
+            if nums[i] >= len(nums) - 1 - i and table[i] is True: 
+                print('jump higher than range')
+                return True
+            print(table)
+            if table[i] == True:
+                jump = i + nums[i]
+                for j in range(i , i + nums[i] + 1):
+                    if j > len(table) - 1: break
+                    table[j] = True
+                    if table[-1] is True: 
+                        
+                        return True    
+                        
+
+        
+        return False
