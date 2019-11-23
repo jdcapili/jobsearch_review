@@ -50,3 +50,4 @@ class Solution:
 
 test = Solution()
 print(test.longestPalindrome('ababa'))
+
