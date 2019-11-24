@@ -12,3 +12,8 @@
 - ','.join((s1,s2,s3))
 - s.tolower()
 - 'Name {name}, Rank {rank}'.format(name='Archimedes', rank=3)
+
+# Notes:
+Understand the implications of a string type which is immutable, e.g., the need to allocate a
+new string when concatenating immutable strings. Know alternatives to immutable strings,
+e.g., a list in Python.
