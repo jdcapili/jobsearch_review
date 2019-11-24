@@ -1,0 +1,14 @@
+# Key Operators
+- s[i] -> indexing
+- len(s) -> length
+- s + t -> combining strings
+- s[i:j] -> slicing.  has many variants
+- s in t -> checking substring
+- s.strip()
+- s.startswith(prefix)
+- s.endswith(suffix)
+- s.split(',')
+- 3 * s -> string multiplier
+- ','.join((s1,s2,s3))
+- s.tolower()
+- 'Name {name}, Rank {rank}'.format(name='Archimedes', rank=3)
