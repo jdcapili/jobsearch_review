@@ -9,8 +9,10 @@ class Solution:
         mid = (len(nums) // 2)
         l, r = nums[0:mid-1], nums[mid:len(nums)]
         ref = TreeNode(nums[mid])
-        print(ref.val)
+        [-3,-5]
+        treenode(-3)
+            [-11,-10]
         
 
 test = Solution()
-test.sortedArrayToBST([-10,-3,0,5,9])
+test.sortedArrayToBST([-11,-10,-3,0,5,9,10])
