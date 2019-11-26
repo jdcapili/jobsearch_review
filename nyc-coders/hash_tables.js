@@ -22,6 +22,7 @@ class HashTable{
             // push [key, value]
             this.keymap[idx] = []
         }
+        
         this.keymap[idx].push([key, value]);
     }
 
