@@ -8,24 +8,31 @@ def baseConversion(s, b1, b2):
 
     val = 0
     for i, char in enumerate(s[::-1]):
-        print(char,i)
-        val += bases[char] * (b1+1)**i
-
+        print(val,char,i)
+        val += bases[char] * (b1)**i
+    # print(val)
     res,i = "",0
-    
-    while ((b2+1)**i) < val:
-        i+=1
+    if b2 == 1: 
+        print("1" * val)
+        return "1" * val
+    else:
+        while ((b2)**i) < val:
+            i+=1
     
     
     print(i)
     for j in reversed(range(i)):
-        print(val - (b2+1) ** j,j)
-        if (val - (b2+1) ** j) >= 0:
-            res += string.hexdigits[b2]
-            val -= (b2+1) ** j
+        print(val - (b2) ** j,j,val)
+        fact = b2
+        while (fact * (b2**j)) > val:
+            fact -= 1
+
+        if (val - (b2) ** j) >= 0:
+            val -= fact * (b2) ** j
+            res += string.hexdigits[fact % b2]
         else:
-            res += string.hexdigits[0]
+            res += string.hexdigits[fact % b2]
 
-    print(res)
+    print(val,i,res)
 
-baseConversion("100",9,1)
+baseConversion("102",3,1)
