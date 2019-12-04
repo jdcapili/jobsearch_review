@@ -11,3 +11,15 @@ class Solution:
                 nxt.append(prev[i]+prev[i+1])
             res.append([1] + nxt + [1])    
         return res
+
+
+
+
+# RECURSION
+# res = self.generate(numRows-1)
+#         prev = res[-1]
+#         nxt = []
+#         for i in range(len(prev)-1):
+#             nxt.append(prev[i]+prev[i+1])
+#         res.append([1] + nxt + [1])
+#         return res
