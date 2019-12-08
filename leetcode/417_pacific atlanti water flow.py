@@ -55,3 +55,19 @@ class Solution:
                     res.add((i,j))
                     
         return res
+
+
+class Solution:
+    def pacificAtlantic(self, matrix: List[List[int]]) -> List[List[int]]:
+        if len(matrix) == 0: return []
+
+        vis = set()
+        visP = set()
+        visA = set()
+
+        if row == 0 or col == 0:
+            visP.add((row,col))
+        elif row == len(matrix) or col = len(matrix[0]):
+            visA.add((row,col))
+
+        
