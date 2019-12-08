@@ -7,7 +7,7 @@ class Solution:
     def numWays(self, steps: int, arrLen: int,pos=0, memo=None) -> int:
         if memo is None: memo = {}
         key = (steps,pos)
-        if key in memo: memo[key]
+        if key in memo: return memo[key]
         if pos < 0 or pos >= arrLen or steps < 0: return 0
         if pos == 0 and steps == 0: return 1
         
