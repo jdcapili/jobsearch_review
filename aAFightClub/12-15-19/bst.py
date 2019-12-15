@@ -17,3 +17,21 @@ b.left = d
 b.right = e
 c.right = f
 
+# if elif else
+#  mutually exclude
+
+def binarySearchRecur(root,val):
+    if root is None: return False
+    if root.val == val: return True
+
+    elif val < root.val:
+        return binarySearchRecur(root.left,val)
+    else:
+        return binarySearchRecur(root.right,val)
+
+
+print(binarySearchRecur(a,7)) #true
+print(binarySearchRecur(a,5)) #true
+print(binarySearchRecur(a,10)) #true
+print(binarySearchRecur(a,16)) #false
+print(binarySearchRecur(a,12)) #false
