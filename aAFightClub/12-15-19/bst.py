@@ -30,8 +30,8 @@ def binarySearchRecur(root,val):
         return binarySearchRecur(root.right,val)
 
 
-print(binarySearchRecur(a,7)) #true
-print(binarySearchRecur(a,5)) #true
-print(binarySearchRecur(a,10)) #true
-print(binarySearchRecur(a,16)) #false
-print(binarySearchRecur(a,12)) #false
+print(binarySearchRecur(a,7), #true
+binarySearchRecur(a,5), #true
+binarySearchRecur(a,10), #true
+binarySearchRecur(a,16), #false
+binarySearchRecur(a,12)) #false
