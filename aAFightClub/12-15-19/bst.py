@@ -40,4 +40,14 @@ binarySearchRecur(a,12)) #false
 def binary_search_iter(root,val):
     current = root
     while current is not None:
-        
+        if current.val == val: return True
+        elif val < current.val: current = current.left
+        else: current = current.right
+
+    return False
+
+print(binary_search_iter(a,7), #true
+binary_search_iter(a,5), #true
+binary_search_iter(a,10), #true
+binary_search_iter(a,16), #false
+binary_search_iter(a,12)) #false
