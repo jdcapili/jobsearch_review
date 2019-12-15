@@ -35,3 +35,9 @@ binarySearchRecur(a,5), #true
 binarySearchRecur(a,10), #true
 binarySearchRecur(a,16), #false
 binarySearchRecur(a,12)) #false
+
+
+def binary_search_iter(root,val):
+    current = root
+    while current is not None:
+        
