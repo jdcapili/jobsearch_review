@@ -7,4 +7,6 @@ search O(n) where n = num of nodes
 
 extra notes:
 pure function: always return same output
-impute function: hard to test. stateful functions
+impure function: hard to test. stateful functions
+
+Closure: function that references variables in a outer scope
