@@ -1,11 +1,25 @@
 var wordBreak = function(s, wordDict) {
-  let curStr = ""
-  let dictSet = new Set(wordDict);
-  for(let char of s){
-      if(dictSet.has(curStr)){
-          curStr = ""
-      }else{
-          curStr += char;
-      }
-  }
+    let dict = new Set(wordDict);
+    let f = [true];
+    let word;
+    for (let i = 1; i < s.length; i++) {
+        for (let j = 0; j < i; j++) {
+            word = s.slice(j,i);
+            if (f[j] && dict.has(word)) {
+                f[i] = true;
+                console.log(word,f)
+                break;
+            }else{
+                f[i] = false;
+                
+            }
+        }
+    }
+    console.log(f[-1])
+    return f[-1];
 }
+
+wordBreak("aaaaaaa",
+["aaaa", "aaa"]);
+wordBreak("applepenapple",
+["apple", "pen"])
