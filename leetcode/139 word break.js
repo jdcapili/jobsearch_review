@@ -8,4 +8,4 @@ var wordBreak = function(s, wordDict) {
           curStr += char;
       }
   }
-};
+}
