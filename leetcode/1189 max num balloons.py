@@ -34,5 +34,24 @@ class Solution:
         return min(ball['b'], ball['a'], ball['l'] // 2, ball['o'] // 2, ball['n'])
 
 
+# alt 2
+
+class Solution:
+    def maxNumberOfBalloons(self, text):
+        dicti = {}
+        for i in range(len(text)):
+            if text[i] in "balloon":
+                if text[i] not in dicti: dicti[text[i]] = 0
+                dicti[text[i]] += 1
+        if len(dicti) != 5: return 0
+        c = math.inf
+        for k,value in dicti.items():
+            if k == "l" or k == "o":
+                c = min(c, value//2)
+            else:
+                c = min(c,value)
+        
+        return c
+
 test = Solution()
 print(test.maxNumberOfBalloons("balon"))
