@@ -23,10 +23,12 @@ class Solution:
         while l1 or l2:
             val_sum = (0 if not l1 else l1.val) + (0 if not l2 else l2.val) + remainder
             remainder = 0
+            
             if val_sum >= 10: remainder = val_sum // 10
             digit = val_sum % 10
             current.next = ListNode(digit)
             current = current.next
+
             if l1: l1 = l1.next
             if l2: l2 = l2.next
         
