@@ -7,3 +7,12 @@ var repeatedNTimes = function (A) {
 
     for (let k in c) if (c[k] > 1) return k
 };
+
+var repeatedNTimes = function (A) {
+    let c = new Set();
+    for (let ele of A) {
+        if (c.has(ele)) return ele;
+        else c.add(ele);
+    }
+
+};
