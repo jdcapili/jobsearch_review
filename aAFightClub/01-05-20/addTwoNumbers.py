@@ -46,7 +46,25 @@ def addTwoNumbers(l1,l2):
     if carry == 1: res.next = ListNode(carry)
     return dummy.next
 
-printList(addTwoNumbers(two,five))
+def addTwoNumbersRecursive(l1,l2,carry = 0):
+    if l1 is None and l2 is None:
+        if carry == 1: return ListNode(carry)
+        else: return None
+    
+    v1 = l1.val if l1 else 0
+    v2 = l2.val if l2 else 0
+    sum = v1 + v2 + carry
+    carry = sum // 10
+    digit = sum % 10
+    nextNode = ListNode(digit)
+    nextNode.next = addTwoNumbersRecursive(
+        l1.next if l1 else l1,
+        l2.next if l2 else l2,
+        carry
+    )
+    return nextNode
+
+printList(addTwoNumbersRecursive(two,five))
 
 # time: o(n), where n is longest linked list
 # space: o(n+1) where n is longest linked list
