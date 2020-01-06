@@ -16,3 +16,8 @@ console.log(a.next())
 console.log(a.next())
 console.log(a.next())
 console.log(a.next())
+
+arr = ['a','b','c']
+for(let i in arr){
+    console.log(i)
+}
