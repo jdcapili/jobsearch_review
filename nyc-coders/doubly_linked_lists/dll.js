@@ -20,6 +20,16 @@ class DoublyLinkedLists{
         this.length = 0;
     }
 
+    print(){
+        let current = this.head;
+        while(current){
+            process.stdout.write(`${current.value} -> `);
+            current = current.next;
+        }
+        console.log(current)
+
+    }
+
     push(val){
         let node = new Node(val);
         if(!this.head){
@@ -83,8 +93,35 @@ class DoublyLinkedLists{
         return this
     }
 
-    insertAtIndex(){
+    insertAtIndex(index, val){
+        // check if index is within the range
+        if(index === 0){
+            this.unshift(val)
+        }else if(index === this.length -1){
+            let poppedNode = this.pop();
+            this.push(val);
+            this.tail.next = poppedNode;
+            poppedNode.prev = this.tail;
+        }else{
+            let counter = 1
+            let current = this.head.next;
+            while(counter != index){
+                current = current.next;
+                counter++;
+            }
 
+            let node = new Node(val);
+            let prevNode = current.prev;
+            let nextNode = current;
+            prevNode.next = node;
+            nextNode.prev = node;
+            node.prev = prevNode;
+            node.next = nextNode;
+            this.length++;
+
+        }
+
+        return this
     }
 
     removeAtIndex(){
@@ -101,11 +138,15 @@ class DoublyLinkedLists{
 }
 
 dll = new DoublyLinkedLists();
-console.log(dll.push(2))
-console.log(dll.push(3))
-console.log(dll.pop())
-console.log(dll.unshift(3))
-console.log(dll.shift())
-console.log(dll)
+dll.push(1);
+dll.push(2);
+dll.push(3);
+dll.print();
+dll.insertAtIndex(1,4)
+dll.print();
+// console.log(dll.pop())
+// console.log(dll.unshift(3))
+// console.log(dll.shift())
+// console.log(dll)
 
 
