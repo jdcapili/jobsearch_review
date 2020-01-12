@@ -103,18 +103,10 @@ class DoublyLinkedLists{
             this.tail.next = poppedNode;
             poppedNode.prev = this.tail;
         }else{
-            let counter = 1
-            let current = this.head.next;
-            while(counter != index){
-                current = current.next;
-                counter++;
-            }
-
             let node = new Node(val);
-            let prevNode = current.prev;
-            let nextNode = current;
-            prevNode.next = node;
-            nextNode.prev = node;
+            let nextNode = this.getIndex(index);
+            let prevNode = nextNode.prev;
+            prevNode.next = nextNode.prev = node;
             node.prev = prevNode;
             node.next = nextNode;
             this.length++;
@@ -124,15 +116,41 @@ class DoublyLinkedLists{
         return this
     }
 
-    removeAtIndex(){
+    removeAtIndex(index){
+        if (index > this.length - 1 || index < 0) return null;
 
+        if(index === 0){
+            this.shift()
+        }else if(index === this.length -1){
+            this.pop();
+        }else{
+            let node = this.getIndex(index)
+            let prevNode = node.prev;
+            let nextNode = node.next;
+            prevNode.next = nextNode
+            nextNode.prev = prevNode
+        }
     }
 
-    getIndex(){
+    getIndex(index){
+        if(index > this.length-1 || index < 0) return null;
+
+        let counter = 0;
+        let current = this.head;
+        while(counter != index){
+            current = current.next;
+            counter++;
+        }
+
+        return current;
 
     }
 
     setIndex(){
+
+    }
+
+    search(){
 
     }
 }
@@ -144,6 +162,7 @@ dll.push(3);
 dll.print();
 dll.insertAtIndex(1,4)
 dll.print();
+console.log(dll.getIndex(2))
 // console.log(dll.pop())
 // console.log(dll.unshift(3))
 // console.log(dll.shift())
