@@ -16,24 +16,19 @@ class Trie:
         cur = self.root
 
         for idx,char in enumerate(string):
-            if char in cur.children:
-                cur = cur.children[char]
-               
-            else:
+            if char not in cur.children:
                 node = Node(char)
-                cur.children[char] = node
-                cur = cur.children[char]
-                
+                cur.children[char] = node               
+            cur = cur.children[char]                
             cur.count += 1    
 
             if idx == len(string) -1: cur.end_of_word = True
 
     def printChildren(self,root,cur=""):
         if not root.children:
-            root.count += 1 
             print(cur + root.char)
             return
-        root.count += 1
+        
         cur += root.char
         for child in root.children.values():
             print(child.char)
@@ -50,7 +45,7 @@ def uniquePrefixes(words):
 
     def check_for_prefix(root,cur=""):
 
-        if not root: return
+        # if not root: return
         if root.count == 1:
             res.append(cur+root.char)
             return    
